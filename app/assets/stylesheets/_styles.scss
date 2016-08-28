@@ -1,0 +1,47 @@
+body {
+	background-color: #000000;
+	font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+.user {
+
+	background-color: #B90000;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	color: #000000;
+	float: left;	
+	min-width: 600px;	
+}
+
+
+.list-group-item {
+	min-width: 300px;
+	padding: 3px 3px;
+}
+
+.user-picture {
+	height: 150px;
+	width: 150px;
+	padding: 5px;
+	border-radius: 75px;
+	-webkit-border-radius: 75px;
+	-moz-border-radius: 75px;
+}
+
+.friend-picture {
+	height: 130px;
+	width: 130px;
+	padding: 5px;
+	border-radius: 65px;
+	-webkit-border-radius: 65px;
+	-moz-border-radius: 65px;
+}
+.user-name {
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.friends-title {
+	color: #B90000;
+}
