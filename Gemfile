@@ -9,6 +9,7 @@ gem 'jbuilder',     '2.4.1'
 gem 'bootstrap-sass', '3.3.7'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
+gem 'lastfm', '~> 1.27', '>= 1.27.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
