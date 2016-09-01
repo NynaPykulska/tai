@@ -33,12 +33,14 @@
           <div class = "col-sm-4">
             <h4 class="user-name text-center"><%= friend["name"] %> </h4>
             <ul class="list-group">
-              <li class="list-group-item">
-                <span class="glyphicon glyphicon-volume-up" aria-hidden="true">
-                </span> Artist - song bla
-              </li>
-              <li class="list-group-item">Artist - song</li>
-              <li class="list-group-item">Artist - song</li>
+              <!--czy potrzebujemy tego?-->
+              <!--<li class="list-group-item">-->
+                <!--<span class="glyphicon glyphicon-volume-up" aria-hidden="true">-->
+                <!--</span> Artist - song-->
+              <!--</li>-->
+              <% @lastfm.getFriendTracks(friend["name"]).each do |track| %>
+                <li class="list-group-item"> <%= track["artist"]["content"] %> - <%= track["name"] %></li>
+              <% end %>
             </ul>
           </div>
         </div>

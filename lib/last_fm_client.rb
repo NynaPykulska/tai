@@ -10,10 +10,9 @@ class LastFMClient
     @lastfm = Lastfm.new(api.key, api.secret)
   end
 
-  def test
-    @lastfm.user.get_friends(:user => "genuyalnyul").each do |x|
-      puts x["name"]
-    end
+  def getFriendTracks(friend)
+    return @lastfm.user.get_recent_tracks(:user => friend.to_s, :limit => 5)
   end
+
 
 end
