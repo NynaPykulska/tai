@@ -1,10 +1,18 @@
-require 'lastfm'
-require_relative 'API_Keys' #tutaj trzymam swoje klucze
 
-api = API_Keys.new
+require_relative 'last_fm_client'
 
-lastfm = Lastfm.new(api.key, api.secret)
+client = LastFMClient.new
 
-lastfm.user.get_friends(:user => "genuyalnyul").each do |x|
-  puts x["name"]
+# client.lastfm.user.get_friends(:user => "genuyalnyul").each do |x|
+#   puts x["name"]
+# end
+
+puts tmp = client.lastfm.user.get_friends(:user => "genuyalnyul")
+tmp.each do |friend|
+  puts client.getFriendTracks(friend["name"])
 end
+
+
+# client.lastfm.user.get_recent_tracks(:user => "genuyalnyul", :limit => 10).each do |track|
+#   puts track["name"]
+# end
