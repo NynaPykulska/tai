@@ -37,12 +37,10 @@
                 <li class="list-group-item"> <%= track["artist"]["content"] %> - <%= track["name"] %>
                 	<br>
                 	<div class="text-right comments">
-                		<!-- <a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"]%>_<%=track["name"]%>">3 comments</a> -->
-                		<a type="button" data-toggle="modal" data-target="#commentsModal">3 comments</a>
+                		<a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>">3 comments</a> 
                 	</div>
 
-                	<div id="commentsModal" class = "modal fade" role = "dialog">
-                	<!-- <div id="comments_<%=track["artist"]["content"]%>_<%=track["name"]%>" class = "modal fade" role = "dialog"> -->
+                	<div id="comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>" class = "modal fade" role = "dialog">
 						<div class="modal-dialog">
 							<div class="modal-content">
 						      <div class="modal-header">
