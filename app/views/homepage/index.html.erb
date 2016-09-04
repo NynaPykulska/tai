@@ -5,7 +5,7 @@
 
   <div class = "col-sm-4 "></div>
 
-	<div class = "col-sm-4 ">
+	<div class = "col-sm-4 text-center">
 		<div class = "container text-center ">
 			<div class = "row user" style="margin-bottom: 15px; margin-top:15px">
 				<div class = "col-sm-4" >
@@ -33,38 +33,76 @@
           <div class = "col-sm-4">
             <h4 class="user-name text-center"><%= friend["name"] %> </h4>
             <ul class="list-group">
-              <!--czy potrzebujemy tego?-->
-              <!--<li class="list-group-item">-->
-                <!--<span class="glyphicon glyphicon-volume-up" aria-hidden="true">-->
-                <!--</span> Artist - song-->
-              <!--</li>-->
               <% @lastfm.getFriendTracks(friend["name"]).each do |track| %>
-                <li class="list-group-item"> <%= track["artist"]["content"] %> - <%= track["name"] %></li>
+                <li class="list-group-item"> <%= track["artist"]["content"] %> - <%= track["name"] %>
+                	<br>
+                	<div class="text-right comments">
+                		<!-- <a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"]%>_<%=track["name"]%>">3 comments</a> -->
+                		<a type="button" data-toggle="modal" data-target="#commentsModal">3 comments</a>
+                	</div>
+
+                	<div id="commentsModal" class = "modal fade" role = "dialog">
+                	<!-- <div id="comments_<%=track["artist"]["content"]%>_<%=track["name"]%>" class = "modal fade" role = "dialog"> -->
+						<div class="modal-dialog">
+							<div class="modal-content">
+						      <div class="modal-header">
+						        <h4 class="modal-title">
+						        	<%= track["artist"]["content"] %> - <%= track["name"] %>
+						        </h4>
+						      </div>
+						      <div class="modal-body text-center container" style="max-width:570px">
+						      	<ul class = "list-group" >
+						      		<li class = "list-group-item text-left">
+						      			<div class = "author">
+						      				<p> Author </p> 
+							      		</div>
+							      		<div class = "comment">
+							      			<p> Comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment </p>
+							      		</div>
+						      		</li>
+
+						      		<li class = "list-group-item text-left">
+						      			<div class = "author">
+						      				<p> Author </p> 
+							      		</div>
+							      		<div class = "comment">
+							      			<p> Comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment </p>
+							      		</div>
+						      		</li>
+
+						      		<li class = "list-group-item text-left">
+						      			<div class = "author">
+						      				<p> Author </p> 
+							      		</div>
+							      		<div class = "comment">
+							      			<p> Comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment </p>
+							      		</div>
+						      		</li>
+						      	</ul>
+						      	
+					      		<textarea name="comment" cols="74" rows="3"></textarea>
+					      		<div class = "text-right">
+					      			<button type="button" class="btn btn-default" >Submit</button>
+					      		</div>
+						      	
+
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+						        </button>
+						      </div>
+						    </div>
+						</div>
+					</div>
+                </li>
               <% end %>
             </ul>
           </div>
         </div>
       <% end %>
-
-
-			<!--<div class = "row user">-->
-				<!--<div class = "col-sm-4" >-->
-					<!--<img class="friend-picture" src="http://img2-ak.lst.fm/i/u/avatar170s/818148bf682d429dc215c1705eb27b98.png">-->
-				<!--</div>-->
-				<!--<div class = "col-sm-4">-->
-					<!--<h4 class="user-name text-center">Username</h4>-->
-					<!--<ul class="list-group">-->
-						<!--<li class="list-group-item">-->
-							<!--Artist - song -->
-						<!--</li>		-->
-						<!--<li class="list-group-item">Artist - song</li>-->
-						<!--<li class="list-group-item">Artist - song</li>		-->
-					<!--</ul>-->
-				<!--</div>-->
-			<!--</div>-->
-
 			
 		</div>
-
+		
 	</div>
 </body>
+

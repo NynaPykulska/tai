@@ -11,12 +11,12 @@ body {
 	border-radius: 5px;
 	color: #000000;
 	float: left;	
-	min-width: 600px;	
+	min-width: 800px;	
 }
 
 
 .list-group-item {
-	min-width: 300px;
+	min-width: 500px;
 	padding: 3px 3px;
 }
 
@@ -44,4 +44,17 @@ body {
 
 .friends-title {
 	color: #B90000;
+}
+
+.comments {
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.author {
+	font-size: 10px;
+}
+
+.comment {
+	font-size: 15px;
 }
