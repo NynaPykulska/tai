@@ -37,7 +37,7 @@
                 <li class="list-group-item"> <%= track["artist"]["content"] %> - <%= track["name"] %>
                 	<br>
                 	<div class="text-right comments">
-                		<a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>">3 comments</a> 
+                		<a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>"><%= get_comments_number(track["artist"]["content"], track["name"])%> comments</a> 
                 	</div>
 
                 	<div id="comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>" class = "modal fade" role = "dialog">
@@ -50,14 +50,19 @@
 						      </div>
 						      <div class="modal-body text-center container" style="max-width:570px">
 						      	<ul class = "list-group" >
-						      		<li class = "list-group-item text-left">
-						      			<div class = "author">
-						      				<p> Author </p> 
-							      		</div>
-							      		<div class = "comment">
-							      			<p> Comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment </p>
-							      		</div>
-						      		</li>
+						      		<% get_comments(track["artist"]["content"], track["name"]).inspect %>
+						      		<% get_comments(track["artist"]["content"], track["name"]).each do |comment| %>
+
+							      		<li class = "list-group-item text-left">
+							      			<div class = "author">
+							      				<p> <% h comment.author %> </p> 
+								      		</div>
+								      		<div class = "comment">
+								      			<p> Comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment </p>
+								      		</div>
+							      		</li>
+
+							      	<% end %>
 
 						      		<li class = "list-group-item text-left">
 						      			<div class = "author">

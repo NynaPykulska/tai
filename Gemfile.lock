@@ -170,6 +170,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activerecord
   autoprefixer-rails
   bootstrap-sass (= 3.3.7)
   byebug (= 9.0.0)
