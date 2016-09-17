@@ -1,0 +1,71 @@
+<div align="center">
+  <img class="user-picture" src=" <%= @user["image"][2]["content"] %>   ">
+  <h1 class="user-name"><%= @name %></h1>
+  <br>
+  <h1 class="user-name">Scrobbles #<%= @user["playcount"] %></h1>
+
+  <div>
+    <ul class="list-group">
+
+      <% @tracks.each do |track| %>
+          <li class="list-group-item">
+            <span class="text-center">
+              <%= track["artist"]["content"] %> - <%= track["name"] %>
+            </span>
+            <span class="text-right comment">
+              <a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>">
+                <span>Comments: <%= @comments.count.to_s %></span>
+              </a>
+            </span>
+
+          </li>
+            <!--Comments-->
+
+            <div id="comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>" class = "modal fade" role = "dialog">
+
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h4 class="modal-title">
+                      <%= track["artist"]["content"] %> - <%= track["name"] %>
+                    </h4>
+                  </div>
+
+                  <div class="modal-body text-center container" style="max-width:570px">
+                    <ul class = "list-group" >
+
+                      <% @comments.each do |comment| %>
+
+                          <li class = "comment-group-item text-left">
+                            <div class = "author">
+                              <p> Author </p>
+                            </div>
+                            <div class = "comment">
+                              <p> <%= comment %> </p>
+                            </div>
+
+                      <% end %>
+
+                    </ul>
+
+                    <textarea name="comment" cols="65" rows="3"></textarea>
+                    <div class = "text-right">
+                      <button type="button" class="btn btn-default" >Submit</button>
+                    </div>
+
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      <% end %>
+    </ul>
+  </div>
+
+</div>

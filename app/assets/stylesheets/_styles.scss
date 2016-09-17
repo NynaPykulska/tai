@@ -3,52 +3,78 @@ body {
 	font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, Sans-serif;
 }
 
+table {
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:6px;
+  -moz-border-radius:6px;
+}
+
 .user {
 
 	background-color: #B90000;
+    left: 30% ;
 	margin: 5px;
 	padding: 5px;
 	border-radius: 5px;
 	color: #000000;
-	float: left;	
-	min-width: 800px;	
+	float: left;
 }
 
 
 .list-group-item {
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
 	min-width: 500px;
 	padding: 3px 3px;
+    background-color: #B90000;
+    border-style: none;
+    color: #000000;
+    width: 50%;
 }
 
+.comment-group-item {
+  min-width: 500px;
+  padding: 3px 3px;
+  color: #000000;
+}
+
+
 .user-picture {
-	height: 150px;
-	width: 150px;
+	height: 200px;
+	width: 200px;
 	padding: 5px;
-	border-radius: 75px;
-	-webkit-border-radius: 75px;
-	-moz-border-radius: 75px;
+    border-radius: 50%;
 }
 
 .friend-picture {
-	height: 130px;
-	width: 130px;
+	height: 200px;
+	width: 200px;
 	padding: 5px;
 	border-radius: 65px;
 	-webkit-border-radius: 65px;
 	-moz-border-radius: 65px;
 }
 .user-name {
-	color: #ffffff;
+	color: #B90000;
 	font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
-.friends-title {
-	color: #B90000;
+.friends-name {
+  color: #000000;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .comments {
-	font-size: 10px;
-	cursor: pointer;
+    color: #B90000;
+	font-size: 12px;
 }
 
 .author {
@@ -58,3 +84,20 @@ body {
 .comment {
 	font-size: 15px;
 }
+
+a:link {
+  background-color: inherit;
+  text-decoration: none;
+}      /* unvisited link */
+a:visited {
+  background-color: inherit;
+  text-decoration: none;
+}   /* visited link */
+a:hover {
+  background-color: inherit;
+  text-decoration: none;
+}     /* mouse over link */
+a:active {
+  background-color: inherit;
+  text-decoration: none;
+}    /* selected link */
