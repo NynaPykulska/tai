@@ -5,10 +5,10 @@ class UserController < ApplicationController
     @name = params[:name]
     @lastfm = LastFMClient.new
     @current_user = session[:name]
+
     if @current_user.eql? nil
       render "error/login"
     else
-
 
     begin
       @user = @lastfm.lastfm.user.get_info(:user => @name)
