@@ -29,10 +29,15 @@ class UserController < ApplicationController
   end
   helper_method :searchComments
 
-  def addComment(comment, artist, title)
-    @comments.create(artist: artist, title: title, comment: comment, author: @current_user)
+  def addComment()
+    session[:return_to] ||= request.referer
+    artist = params[:artist]
+    comment = params[:comment]
+    title = params[:title]
+    current_user = session[:name]
+    Comment.create(artist: artist, title: title, comment: comment, author:current_user)
+    redirect_to session.delete(:return_to)
   end
-  helper_method :addComment
 
 
 end

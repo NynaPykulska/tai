@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'login/auth', to: 'login#auth', as: 'login_auth'
   get 'homepage', to: 'homepage#index', as: 'homepage'
   get 'user/:name', to: 'user#index', as: 'user'
-  get 'user/comment', to: 'user#addComment', as: 'addComment'
+  post 'user/comment', to: 'user#addComment', as: 'addComment'
 
   resources :comments
   resources :homepage

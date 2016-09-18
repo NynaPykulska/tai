@@ -51,7 +51,7 @@
 
                     <textarea name="comment" cols="65" rows="3"></textarea>
                     <div class = "text-right">
-                      <%= button_to 'Submit', addComment_path, params: {comment: "aaa", artist: track["artist"]["content"], title: track["name"]}  %>
+                      <%= button_to 'Submit', addComment_path(:comment => "aaa", :artist => track["artist"]["content"], :title => track["name"])  %>
                     </div>
 
                     <!--addComment(text_area.to_s, track["artist"]["content"], track["name"]-->
