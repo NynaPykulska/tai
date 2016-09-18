@@ -4,15 +4,15 @@ class HomepageController < ApplicationController
 
 	def index
 		@lastfm = LastFMClient.new
-		@friends = @lastfm.lastfm.user.get_friends(:user => "genuyalnyul")
-		@token = @lastfm.lastfm.auth.get_token
-		@comments = Array.new
-		for i in 1..3 do
-			@comments.push("Comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment comment")
-		end
-	end
+		@token = session[:token]
 
-	def addComment(comment)
-		@comments.push(comment)
+		if session[:token].eql? nil
+			render "error/login"
+		else
+			@name = @lastfm.lastfm.auth.get_session(token: @token)['name']
+			session[:name] = @name
+			@user = @lastfm.lastfm.user.get_info(:user => @name)
+			@friends = @lastfm.lastfm.user.get_friends(:user => @name)
+		end
 	end
 end

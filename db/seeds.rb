@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Comment.create(artist: "Crystal Castles", title: "Magic Spells", comment: "Great stuff", author: "genuyalnyul");
+Comment.create(artist: "Crystal Castles", title: "Magic Spells", comment: "Great stuff2", author: "genuyalnyul");
+Comment.create(artist: "Crystal Castles", title: "Magic Spells", comment: "Great stuff3", author: "genuyalnyul");
