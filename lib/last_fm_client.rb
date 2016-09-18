@@ -11,7 +11,13 @@ class LastFMClient
   end
 
   def getFriendTracks(friend)
-    return @lastfm.user.get_recent_tracks(:user => friend.to_s, :limit => 10)
+    result = @lastfm.user.get_recent_tracks(:user => friend.to_s, :limit => 11)
+    if result.count.even?
+      return result
+    else
+      return @lastfm.user.get_recent_tracks(:user => friend.to_s, :limit => 12)
+    end
+
   end
 
 
