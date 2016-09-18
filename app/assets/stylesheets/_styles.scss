@@ -21,17 +21,28 @@ table {
 	float: left;
 }
 
+.track {
+  background-color: #B90000;
+  left: 20% ;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  color: #000000;
+  float: left;
+  width: 40%;
+}
+
 
 .list-group-item {
-    height: 30px;
-    line-height: 30px;
+
     font-size: 15px;
-	min-width: 500px;
-	padding: 3px 3px;
+    min-width: 500px;
+    padding: 3px 3px;
     background-color: #B90000;
-    border-style: none;
+    border-style: solid;
+    border-color: #999999;
     color: #000000;
-    width: 50%;
+    width: 30%
 }
 
 .comment-group-item {

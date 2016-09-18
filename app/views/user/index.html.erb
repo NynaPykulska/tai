@@ -4,71 +4,93 @@
   <br>
   <h1 class="user-name">Scrobbles #<%= @user["playcount"] %></h1>
 
-  <div>
-    <ul class="list-group">
+  <div class="row">
 
-      <% @tracks.each do |track| %>
-          <li class="list-group-item">
-            <span class="text-center">
-              <%= track["artist"]["content"] %> - <%= track["name"] %>
-            </span>
-            <span class="text-right comment">
-              <a type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>">
-                <span>Comments: <%= searchComments(track["artist"]["content"], track["name"]).count.to_s %></span>
-              </a>
-            </span>
+    <div class="col-sm-3"></div>
 
-          </li>
-            <!--Comments-->
+    <div class="col-sm-6">
 
-            <div id="comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>" class = "modal fade" role = "dialog">
+    <div class = "container">
 
-              <div class="modal-dialog">
-                <div class="modal-content">
+    <% @tracks.each do |track| %>
+        <div class = "row track">
 
-                  <div class="modal-header">
-                    <h4 class="modal-title">
-                      <%= track["artist"]["content"] %> - <%= track["name"] %>
-                    </h4>
-                  </div>
 
-                  <div class="modal-body text-center container" style="max-width:570px">
-                    <ul class = "list-group" >
+              <img class="user-picture" src=" <% if track["image"][2]["content"].eql?(nil) %>
+               <%= "http://sctomp3.com/downloads/artwork/unknown.jpg" %>
+                <% else%>
+                <%= track["image"][2]["content"] %>
+                <% end %>">
 
-                      <% searchComments(track["artist"]["content"], track["name"]).each do |comment| %>
 
-                          <li class = "comment-group-item text-left">
-                            <div class = "author">
-                              <p> <%= comment.author %> </p>
-                            </div>
-                            <div class = "comment">
-                              <p> <%= comment.comment %> </p>
-                            </div>
+          <br>
 
-                      <% end %>
+              <h4 class="friends-name text-center">
+                <%= track["artist"]["content"] %>
+                <br>
+                <%= track["name"] %>
+              </h4>
+          <br>
+          <a style="color: #000000" type="button" data-toggle="modal" data-target="#comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>">
+            Comments: <%= searchComments(track["artist"]["content"], track["name"]).count.to_s %>
+          </a>
+        </div>
 
-                    </ul>
+        <div id="comments_<%=track["artist"]["content"].parameterize%>_<%=track["name"].parameterize%>" class = "modal fade" role = "dialog">
 
-                    <%= form_tag addComment_path(:artist => track["artist"]["content"], :title => track["name"]), :id => "my_form" do -%>
-                        <%= text_area_tag :comment, nil, cols: 65, rows: 3 %>
-                        <div class = "text-right">
-                          <%= submit_tag "Submit" %>
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <%= track["artist"]["content"] %> - <%= track["name"] %>
+                </h4>
+              </div>
+
+              <div class="modal-body text-center container" style="max-width:570px">
+                <ul class = "list-group" >
+
+                  <% searchComments(track["artist"]["content"], track["name"]).each do |comment| %>
+
+                      <li class = "comment-group-item text-left">
+                        <div class = "author">
+                          <p> <%= comment.author %> </p>
                         </div>
-                    <% end -%>
+                        <div class = "comment">
+                          <p> <%= comment.comment %> </p>
+                        </div>
+
+                  <% end %>
+
+                </ul>
+
+                <%= form_tag addComment_path(:artist => track["artist"]["content"], :title => track["name"]), :id => "my_form" do -%>
+                    <%= text_area_tag :comment, nil, cols: 65, rows: 3 %>
+                    <div class = "text-right">
+                      <%= submit_tag "Submit" %>
+                    </div>
+                <% end -%>
 
 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                    </button>
-                  </div>
-                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                </button>
               </div>
             </div>
+          </div>
+        </div>
+    <% end %>
 
-      <% end %>
-    </ul>
+
   </div>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+
+<!--tu o bylo-->
 
   <%= link_to homepage_path do%>
       <h4 class="friends-name text-center" style="color: #B90000"> BACK </h4>
