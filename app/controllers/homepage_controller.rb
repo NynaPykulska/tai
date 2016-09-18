@@ -11,7 +11,12 @@ class HomepageController < ApplicationController
 		else
 			@name = session[:name]
 			@user = @lastfm.lastfm.user.get_info(:user => @name)
-			@friends = @lastfm.lastfm.user.get_friends(:user => @name)
+			begin
+				@friends = @lastfm.lastfm.user.get_friends(:user => @name)
+			rescue
+				@friends = Array.new
+				@message = "You got no friends here"
+			end
 		end
 	end
 end
