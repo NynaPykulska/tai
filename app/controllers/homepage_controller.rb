@@ -9,8 +9,7 @@ class HomepageController < ApplicationController
 		if session[:token].eql? nil
 			render "error/login"
 		else
-			@name = @lastfm.lastfm.auth.get_session(token: @token)['name']
-			session[:name] = @name
+			@name = session[:name]
 			@user = @lastfm.lastfm.user.get_info(:user => @name)
 			@friends = @lastfm.lastfm.user.get_friends(:user => @name)
 		end

@@ -7,7 +7,9 @@ class LoginController < ApplicationController
   end
 
   def auth
+    @lastfm = LastFMClient.new
     session[:token] = params[:token]
+    session[:name] = @lastfm.lastfm.auth.get_session(token: session[:token])['name']
     redirect_to homepage_path
   end
 

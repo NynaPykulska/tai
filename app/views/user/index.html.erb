@@ -49,13 +49,12 @@
 
                     </ul>
 
-                    <textarea name="comment" cols="65" rows="3"></textarea>
-                    <div class = "text-right">
-                      <%= button_to 'Submit', addComment_path(:comment => "aaa", :artist => track["artist"]["content"], :title => track["name"])  %>
-                    </div>
-
-                    <!--addComment(text_area.to_s, track["artist"]["content"], track["name"]-->
-
+                    <%= form_tag addComment_path(:artist => track["artist"]["content"], :title => track["name"]), :id => "my_form" do -%>
+                        <%= text_area_tag :comment, nil, cols: 65, rows: 3 %>
+                        <div class = "text-right">
+                          <%= submit_tag "Submit" %>
+                        </div>
+                    <% end -%>
 
 
                   </div>
