@@ -1,0 +1,24 @@
+<div class="text-center container" style="max-width:570px; background-color: #000000;">
+  <ul class = "list-group" >
+
+    <% @comments.each do |comment| %>
+
+        <li class = "list-group-item text-left">
+          <div class = "author">
+            <p> <%= comment.author %> </p>
+          </div>
+          <div class = "author">
+              <p> <%= comment.artist%> </p>
+            <p> <%= comment.artist%> </p>
+          </div>
+          <div class = "comment">
+            <p> <%= comment.comment %> </p>
+          </div>
+
+    <% end %>
+
+  </ul>
+
+
+
+</div>

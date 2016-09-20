@@ -19,4 +19,14 @@ class HomepageController < ApplicationController
 			end
 		end
 	end
+
+	def comments
+		name = session[:name]
+		if session[:token].eql? nil
+			render "error/login"
+		else
+			@comments = Comment.where(author: name)
+			render comment_path
+		end
+	end
 end

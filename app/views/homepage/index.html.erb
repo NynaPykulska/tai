@@ -6,6 +6,11 @@
     <div align="center">
       <img class="user-picture" src=" <%= @user["image"][2]["content"] %>   ">
       <h1 class="user-name">Hello, <%= @user[ "name"] %></h1>
+      <br>
+      <%= link_to comment_path do%>
+          <h4 class="friends-name text-center" style="color: #B90000"> your comments </h4>
+      <% end %>
+
     </div>
 
 
