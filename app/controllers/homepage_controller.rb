@@ -22,11 +22,10 @@ class HomepageController < ApplicationController
 
 	def comments
 		name = session[:name]
-		if session[:token].eql? nil
+		if session[:name].eql? nil
 			render "error/login"
 		else
 			@comments = Comment.where(author: name)
-			render comment_path
 		end
 	end
 end
